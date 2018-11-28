@@ -1,0 +1,35 @@
+﻿@model NoteApp.Models.Search
+
+@{
+    ViewBag.Title = "Каталог пользователей";
+}
+
+<h2>Каталог пользователей</h2>
+
+<form method="get">
+    <div class="form-inline form-group">
+        <label class="control-label">Имя: </label>
+        @Html.TextBox("name", Model.Name, htmlAttributes: new { @class = "form-control" })
+
+    
+
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+
+<table class="table table-striped">
+    <tr>
+        <th>Имя</th>
+     
+    </tr>
+
+    @foreach (var item in Model.Notes)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            
+        </tr>
+    }
+</table>
